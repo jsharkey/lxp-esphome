@@ -1,0 +1,1233 @@
+
+sensor:
+  - platform: modbus_controller
+    modbus_controller_id: inverter_1
+    id: Vpv1
+    name: 'PV1 voltage'
+    register_type: read
+    address: 1
+    value_type: U_WORD
+    state_class: 'measurement'
+    device_class: voltage
+    unit_of_measurement: 'V'
+    accuracy_decimals: 1
+    filters:
+      - multiply: 0.1
+  - platform: modbus_controller
+    modbus_controller_id: inverter_1
+    id: Vpv2
+    name: 'PV2 voltage'
+    register_type: read
+    address: 2
+    value_type: U_WORD
+    state_class: 'measurement'
+    device_class: voltage
+    unit_of_measurement: 'V'
+    accuracy_decimals: 1
+    filters:
+      - multiply: 0.1
+  - platform: modbus_controller
+    modbus_controller_id: inverter_1
+    id: Vpv3
+    name: 'PV3 voltage'
+    internal: true
+    register_type: read
+    address: 3
+    value_type: U_WORD
+    state_class: 'measurement'
+    device_class: voltage
+    unit_of_measurement: 'V'
+    accuracy_decimals: 1
+    filters:
+      - multiply: 0.1
+  - platform: modbus_controller
+    modbus_controller_id: inverter_1
+    id: Vbat
+    name: 'Battery voltage'
+    register_type: read
+    address: 4
+    value_type: U_WORD
+    state_class: 'measurement'
+    device_class: voltage
+    unit_of_measurement: 'V'
+    entity_category: 'diagnostic'
+    accuracy_decimals: 1
+    filters:
+      - multiply: 0.1
+  - platform: modbus_controller
+    modbus_controller_id: inverter_1
+    id: Ppv1
+    name: 'PV1 power'
+    register_type: read
+    address: 7
+    value_type: U_WORD
+    state_class: 'measurement'
+    device_class: power
+    unit_of_measurement: 'W'
+  - platform: modbus_controller
+    modbus_controller_id: inverter_1
+    id: Ppv2
+    name: 'PV2 power'
+    register_type: read
+    address: 8
+    value_type: U_WORD
+    state_class: 'measurement'
+    device_class: power
+    unit_of_measurement: 'W'
+  - platform: modbus_controller
+    modbus_controller_id: inverter_1
+    id: Ppv3
+    name: 'PV3 power'
+    internal: true
+    register_type: read
+    address: 9
+    value_type: U_WORD
+    state_class: 'measurement'
+    device_class: power
+    unit_of_measurement: 'W'
+  - platform: modbus_controller
+    modbus_controller_id: inverter_1
+    id: Pcharge
+    name: 'Battery charge power'
+    register_type: read
+    address: 10
+    value_type: U_WORD
+    state_class: 'measurement'
+    device_class: power
+    unit_of_measurement: 'W'
+  - platform: modbus_controller
+    modbus_controller_id: inverter_1
+    id: Pdischarge
+    name: 'Battery discharge power'
+    register_type: read
+    address: 11
+    value_type: U_WORD
+    state_class: 'measurement'
+    device_class: power
+    unit_of_measurement: 'W'
+  - platform: modbus_controller
+    modbus_controller_id: inverter_1
+    id: VacR
+    name: 'Grid L1 voltage'
+    register_type: read
+    address: 12
+    value_type: U_WORD
+    state_class: 'measurement'
+    device_class: voltage
+    unit_of_measurement: 'V'
+    entity_category: 'diagnostic'
+    accuracy_decimals: 1
+    filters:
+      - multiply: 0.1
+  - platform: modbus_controller
+    modbus_controller_id: inverter_1
+    id: VacS
+    name: 'Grid L2 voltage'
+    internal: true
+    register_type: read
+    address: 13
+    value_type: U_WORD
+    state_class: 'measurement'
+    device_class: voltage
+    unit_of_measurement: 'V'
+    entity_category: 'diagnostic'
+    accuracy_decimals: 1
+    filters:
+      - multiply: 0.1
+  - platform: modbus_controller
+    modbus_controller_id: inverter_1
+    id: VacT
+    name: 'Grid L3 voltage'
+    internal: true
+    register_type: read
+    address: 14
+    value_type: U_WORD
+    state_class: 'measurement'
+    device_class: voltage
+    unit_of_measurement: 'V'
+    entity_category: 'diagnostic'
+    accuracy_decimals: 1
+    filters:
+      - multiply: 0.1
+  - platform: modbus_controller
+    modbus_controller_id: inverter_1
+    id: Fac
+    name: 'Grid frequency'
+    register_type: read
+    address: 15
+    value_type: U_WORD
+    state_class: 'measurement'
+    device_class: frequency
+    unit_of_measurement: 'Hz'
+    entity_category: 'diagnostic'
+    accuracy_decimals: 2
+    filters:
+      - multiply: 0.01
+  - platform: modbus_controller
+    modbus_controller_id: inverter_1
+    id: Pinv
+    name: 'Inverter power'
+    register_type: read
+    address: 16
+    value_type: U_WORD
+    state_class: 'measurement'
+    device_class: power
+    unit_of_measurement: 'W'
+    entity_category: 'diagnostic'
+  - platform: modbus_controller
+    modbus_controller_id: inverter_1
+    id: Prec
+    name: 'Rectifier power'
+    register_type: read
+    address: 17
+    value_type: U_WORD
+    state_class: 'measurement'
+    device_class: power
+    unit_of_measurement: 'W'
+    entity_category: 'diagnostic'
+  - platform: modbus_controller
+    modbus_controller_id: inverter_1
+    id: IinvRMS
+    name: 'Inverter current'
+    register_type: read
+    address: 18
+    value_type: U_WORD
+    state_class: 'measurement'
+    device_class: current
+    unit_of_measurement: 'A'
+    entity_category: 'diagnostic'
+    accuracy_decimals: 2
+    filters:
+      - multiply: 0.01
+  - platform: modbus_controller
+    modbus_controller_id: inverter_1
+    id: PF
+    name: 'Power factor'
+    internal: true
+    register_type: read
+    address: 19
+    value_type: S_WORD
+    state_class: 'measurement'
+    entity_category: 'diagnostic'
+    accuracy_decimals: 3
+    filters:
+      - multiply: 0.001
+  - platform: modbus_controller
+    modbus_controller_id: inverter_1
+    id: VepsR
+    name: 'EPS L1 voltage'
+    register_type: read
+    address: 20
+    value_type: U_WORD
+    state_class: 'measurement'
+    device_class: voltage
+    unit_of_measurement: 'V'
+    entity_category: 'diagnostic'
+    accuracy_decimals: 1
+    filters:
+      - multiply: 0.1
+  - platform: modbus_controller
+    modbus_controller_id: inverter_1
+    id: VepsS
+    name: 'EPS L2 voltage'
+    internal: true
+    register_type: read
+    address: 21
+    value_type: U_WORD
+    state_class: 'measurement'
+    device_class: voltage
+    unit_of_measurement: 'V'
+    entity_category: 'diagnostic'
+    accuracy_decimals: 1
+    filters:
+      - multiply: 0.1
+  - platform: modbus_controller
+    modbus_controller_id: inverter_1
+    id: VepsT
+    name: 'EPS L3 voltage'
+    internal: true
+    register_type: read
+    address: 22
+    value_type: U_WORD
+    state_class: 'measurement'
+    device_class: voltage
+    unit_of_measurement: 'V'
+    entity_category: 'diagnostic'
+    accuracy_decimals: 1
+    filters:
+      - multiply: 0.1
+  - platform: modbus_controller
+    modbus_controller_id: inverter_1
+    id: Feps
+    name: 'EPS frequency'
+    register_type: read
+    address: 23
+    value_type: U_WORD
+    state_class: 'measurement'
+    device_class: frequency
+    unit_of_measurement: 'Hz'
+    entity_category: 'diagnostic'
+    accuracy_decimals: 2
+    filters:
+      - multiply: 0.01
+  - platform: modbus_controller
+    modbus_controller_id: inverter_1
+    id: Peps
+    name: 'EPS power'
+    register_type: read
+    address: 24
+    value_type: U_WORD
+    state_class: 'measurement'
+    device_class: power
+    unit_of_measurement: 'W'
+  - platform: modbus_controller
+    modbus_controller_id: inverter_1
+    id: Seps
+    name: 'EPS apparent power'
+    register_type: read
+    address: 25
+    value_type: U_WORD
+    state_class: 'measurement'
+    device_class: apparent_power
+    unit_of_measurement: 'VA'
+    entity_category: 'diagnostic'
+  - platform: modbus_controller
+    modbus_controller_id: inverter_1
+    id: Ptogrid
+    name: 'Export to grid power'
+    internal: true
+    register_type: read
+    address: 26
+    value_type: U_WORD
+    state_class: 'measurement'
+    device_class: power
+    unit_of_measurement: 'W'
+  - platform: modbus_controller
+    modbus_controller_id: inverter_1
+    id: Ptouser
+    name: 'Import from grid power'
+    register_type: read
+    address: 27
+    value_type: U_WORD
+    state_class: 'measurement'
+    device_class: power
+    unit_of_measurement: 'W'
+  - platform: modbus_controller
+    modbus_controller_id: inverter_1
+    id: Epv1_day
+    name: 'PV1 energy today'
+    register_type: read
+    address: 28
+    value_type: U_WORD
+    state_class: 'total_increasing'
+    device_class: energy
+    unit_of_measurement: 'kWh'
+    accuracy_decimals: 1
+    filters:
+      - multiply: 0.1
+  - platform: modbus_controller
+    modbus_controller_id: inverter_1
+    id: Epv2_day
+    name: 'PV2 energy today'
+    register_type: read
+    address: 29
+    value_type: U_WORD
+    state_class: 'total_increasing'
+    device_class: energy
+    unit_of_measurement: 'kWh'
+    accuracy_decimals: 1
+    filters:
+      - multiply: 0.1
+  - platform: modbus_controller
+    modbus_controller_id: inverter_1
+    id: Epv3_day
+    name: 'PV3 energy today'
+    internal: true
+    register_type: read
+    address: 30
+    value_type: U_WORD
+    state_class: 'total_increasing'
+    device_class: energy
+    unit_of_measurement: 'kWh'
+    accuracy_decimals: 1
+    filters:
+      - multiply: 0.1
+  - platform: modbus_controller
+    modbus_controller_id: inverter_1
+    id: Einv_day
+    name: 'Inverter energy today'
+    register_type: read
+    address: 31
+    value_type: U_WORD
+    state_class: 'total_increasing'
+    device_class: energy
+    unit_of_measurement: 'kWh'
+    entity_category: 'diagnostic'
+    accuracy_decimals: 1
+    filters:
+      - multiply: 0.1
+  - platform: modbus_controller
+    modbus_controller_id: inverter_1
+    id: Erec_day
+    name: 'Rectifier energy today'
+    register_type: read
+    address: 32
+    value_type: U_WORD
+    state_class: 'total_increasing'
+    device_class: energy
+    unit_of_measurement: 'kWh'
+    entity_category: 'diagnostic'
+    accuracy_decimals: 1
+    filters:
+      - multiply: 0.1
+  - platform: modbus_controller
+    modbus_controller_id: inverter_1
+    id: Echg_day
+    name: 'Battery charged energy today'
+    register_type: read
+    address: 33
+    value_type: U_WORD
+    state_class: 'total_increasing'
+    device_class: energy
+    unit_of_measurement: 'kWh'
+    accuracy_decimals: 1
+    filters:
+      - multiply: 0.1
+  - platform: modbus_controller
+    modbus_controller_id: inverter_1
+    id: Edischg_day
+    name: 'Battery discharged energy today'
+    register_type: read
+    address: 34
+    value_type: U_WORD
+    state_class: 'total_increasing'
+    device_class: energy
+    unit_of_measurement: 'kWh'
+    accuracy_decimals: 1
+    filters:
+      - multiply: 0.1
+  - platform: modbus_controller
+    modbus_controller_id: inverter_1
+    id: Eeps_day
+    name: 'EPS energy today'
+    register_type: read
+    address: 35
+    value_type: U_WORD
+    state_class: 'total_increasing'
+    device_class: energy
+    unit_of_measurement: 'kWh'
+    accuracy_decimals: 1
+    filters:
+      - multiply: 0.1
+  - platform: modbus_controller
+    modbus_controller_id: inverter_1
+    id: Etogrid_day
+    name: 'Export to grid energy today'
+    internal: true
+    register_type: read
+    address: 36
+    value_type: U_WORD
+    state_class: 'total_increasing'
+    device_class: energy
+    unit_of_measurement: 'kWh'
+    accuracy_decimals: 1
+    filters:
+      - multiply: 0.1
+  - platform: modbus_controller
+    modbus_controller_id: inverter_1
+    id: Etouser_day
+    name: 'Import from grid energy today'
+    register_type: read
+    address: 37
+    value_type: U_WORD
+    state_class: 'total_increasing'
+    device_class: energy
+    unit_of_measurement: 'kWh'
+    accuracy_decimals: 1
+    filters:
+      - multiply: 0.1
+  - platform: modbus_controller
+    modbus_controller_id: inverter_1
+    id: Vbus1
+    name: 'Bus 1 voltage'
+    register_type: read
+    address: 38
+    value_type: U_WORD
+    state_class: 'measurement'
+    device_class: voltage
+    unit_of_measurement: 'V'
+    entity_category: 'diagnostic'
+    accuracy_decimals: 1
+    filters:
+      - multiply: 0.1
+  - platform: modbus_controller
+    modbus_controller_id: inverter_1
+    id: Vbus2
+    name: 'Bus 2 voltage'
+    register_type: read
+    address: 39
+    value_type: U_WORD
+    state_class: 'measurement'
+    device_class: voltage
+    unit_of_measurement: 'V'
+    entity_category: 'diagnostic'
+    accuracy_decimals: 1
+    filters:
+      - multiply: 0.1
+  - platform: modbus_controller
+    modbus_controller_id: inverter_1
+    id: Epv1_all
+    name: 'PV1 energy lifetime'
+    register_type: read
+    address: 40
+    value_type: U_DWORD_R
+    state_class: 'total_increasing'
+    device_class: energy
+    unit_of_measurement: 'kWh'
+    entity_category: 'diagnostic'
+    accuracy_decimals: 1
+    filters:
+      - multiply: 0.1
+  - platform: modbus_controller
+    modbus_controller_id: inverter_1
+    id: Epv2_all
+    name: 'PV2 energy lifetime'
+    register_type: read
+    address: 42
+    value_type: U_DWORD_R
+    state_class: 'total_increasing'
+    device_class: energy
+    unit_of_measurement: 'kWh'
+    entity_category: 'diagnostic'
+    accuracy_decimals: 1
+    filters:
+      - multiply: 0.1
+  - platform: modbus_controller
+    modbus_controller_id: inverter_1
+    id: Epv3_all
+    name: 'PV3 energy lifetime'
+    internal: true
+    register_type: read
+    address: 44
+    value_type: U_DWORD_R
+    state_class: 'total_increasing'
+    device_class: energy
+    unit_of_measurement: 'kWh'
+    entity_category: 'diagnostic'
+    accuracy_decimals: 1
+    filters:
+      - multiply: 0.1
+  - platform: modbus_controller
+    modbus_controller_id: inverter_1
+    id: Einv_all
+    name: 'Inverter energy lifetime'
+    register_type: read
+    address: 46
+    value_type: U_DWORD_R
+    state_class: 'total_increasing'
+    device_class: energy
+    unit_of_measurement: 'kWh'
+    entity_category: 'diagnostic'
+    accuracy_decimals: 1
+    filters:
+      - multiply: 0.1
+  - platform: modbus_controller
+    modbus_controller_id: inverter_1
+    id: Erec_all
+    name: 'Rectifier energy lifetime'
+    register_type: read
+    address: 48
+    value_type: U_DWORD_R
+    state_class: 'total_increasing'
+    device_class: energy
+    unit_of_measurement: 'kWh'
+    entity_category: 'diagnostic'
+    accuracy_decimals: 1
+    filters:
+      - multiply: 0.1
+  - platform: modbus_controller
+    modbus_controller_id: inverter_1
+    id: Echg_all
+    name: 'Battery charged energy lifetime'
+    register_type: read
+    address: 50
+    value_type: U_DWORD_R
+    state_class: 'total_increasing'
+    device_class: energy
+    unit_of_measurement: 'kWh'
+    entity_category: 'diagnostic'
+    accuracy_decimals: 1
+    filters:
+      - multiply: 0.1
+  - platform: modbus_controller
+    modbus_controller_id: inverter_1
+    id: Edischg_all
+    name: 'Battery discharged energy lifetime'
+    register_type: read
+    address: 52
+    value_type: U_DWORD_R
+    state_class: 'total_increasing'
+    device_class: energy
+    unit_of_measurement: 'kWh'
+    entity_category: 'diagnostic'
+    accuracy_decimals: 1
+    filters:
+      - multiply: 0.1
+  - platform: modbus_controller
+    modbus_controller_id: inverter_1
+    id: Eeps_all
+    name: 'EPS energy lifetime'
+    register_type: read
+    address: 54
+    value_type: U_DWORD_R
+    state_class: 'total_increasing'
+    device_class: energy
+    unit_of_measurement: 'kWh'
+    entity_category: 'diagnostic'
+    accuracy_decimals: 1
+    filters:
+      - multiply: 0.1
+  - platform: modbus_controller
+    modbus_controller_id: inverter_1
+    id: Etogrid_all
+    name: 'Export to grid energy lifetime'
+    internal: true
+    register_type: read
+    address: 56
+    value_type: U_DWORD_R
+    state_class: 'total_increasing'
+    device_class: energy
+    unit_of_measurement: 'kWh'
+    entity_category: 'diagnostic'
+    accuracy_decimals: 1
+    filters:
+      - multiply: 0.1
+  - platform: modbus_controller
+    modbus_controller_id: inverter_1
+    id: Etouser_all
+    name: 'Import from grid energy lifetime'
+    register_type: read
+    address: 58
+    value_type: U_DWORD_R
+    state_class: 'total_increasing'
+    device_class: energy
+    unit_of_measurement: 'kWh'
+    entity_category: 'diagnostic'
+    accuracy_decimals: 1
+    filters:
+      - multiply: 0.1
+  - platform: modbus_controller
+    modbus_controller_id: inverter_1
+    id: Tinner
+    name: 'Internal temperature'
+    register_type: read
+    address: 64
+    value_type: S_WORD
+    state_class: 'measurement'
+    device_class: temperature
+    unit_of_measurement: '°C'
+    entity_category: 'diagnostic'
+    filters:
+      - filter_out: 0
+  - platform: modbus_controller
+    modbus_controller_id: inverter_1
+    id: Tradiator1
+    name: 'Radiator temperature 1'
+    register_type: read
+    address: 65
+    value_type: S_WORD
+    state_class: 'measurement'
+    device_class: temperature
+    unit_of_measurement: '°C'
+    entity_category: 'diagnostic'
+    filters:
+      - filter_out: 0
+  - platform: modbus_controller
+    modbus_controller_id: inverter_1
+    id: Tradiator2
+    name: 'Radiator temperature 2'
+    register_type: read
+    address: 66
+    value_type: S_WORD
+    state_class: 'measurement'
+    device_class: temperature
+    unit_of_measurement: '°C'
+    entity_category: 'diagnostic'
+    filters:
+      - filter_out: 0
+  - platform: modbus_controller
+    modbus_controller_id: inverter_1
+    id: Tbat
+    name: 'Battery temperature'
+    register_type: read
+    address: 67
+    value_type: S_WORD
+    state_class: 'measurement'
+    device_class: temperature
+    unit_of_measurement: '°C'
+    entity_category: 'diagnostic'
+    filters:
+      - filter_out: 0
+  - platform: modbus_controller
+    modbus_controller_id: inverter_1
+    id: RunningTime
+    name: 'Uptime'
+    register_type: read
+    address: 69
+    value_type: U_DWORD_R
+    state_class: 'total_increasing'
+    device_class: duration
+    unit_of_measurement: 's'
+    entity_category: 'diagnostic'
+  - platform: modbus_controller
+    modbus_controller_id: inverter_1
+    id: MaxChgCurr
+    name: 'BMS limited maximum charge current'
+    register_type: read
+    address: 81
+    value_type: U_WORD
+    state_class: 'measurement'
+    device_class: current
+    unit_of_measurement: 'A'
+    entity_category: 'diagnostic'
+    accuracy_decimals: 1
+    filters:
+      - multiply: 0.1
+  - platform: modbus_controller
+    modbus_controller_id: inverter_1
+    id: MaxDischgCurr
+    name: 'BMS limited maximum discharge current'
+    register_type: read
+    address: 82
+    value_type: U_WORD
+    state_class: 'measurement'
+    device_class: current
+    unit_of_measurement: 'A'
+    entity_category: 'diagnostic'
+    accuracy_decimals: 1
+    filters:
+      - multiply: 0.1
+  - platform: modbus_controller
+    modbus_controller_id: inverter_1
+    id: ChargeVoltRef
+    name: 'BMS recommended charging voltage'
+    internal: true
+    register_type: read
+    address: 83
+    value_type: U_WORD
+    state_class: 'measurement'
+    device_class: voltage
+    unit_of_measurement: 'V'
+    entity_category: 'diagnostic'
+    accuracy_decimals: 1
+    filters:
+      - multiply: 0.1
+  - platform: modbus_controller
+    modbus_controller_id: inverter_1
+    id: DischgCutVolt
+    name: 'BMS recommended discharge cut-off voltage'
+    internal: true
+    register_type: read
+    address: 84
+    value_type: U_WORD
+    state_class: 'measurement'
+    device_class: voltage
+    unit_of_measurement: 'V'
+    entity_category: 'diagnostic'
+    accuracy_decimals: 1
+    filters:
+      - multiply: 0.1
+  - platform: modbus_controller
+    modbus_controller_id: inverter_1
+    id: BatParallelNum
+    name: 'Number of batteries in parallel'
+    register_type: read
+    address: 96
+    value_type: U_WORD
+    state_class: 'measurement'
+  - platform: modbus_controller
+    modbus_controller_id: inverter_1
+    id: BatCapacity
+    name: 'Battery capacity (Ah)'
+    register_type: read
+    address: 97
+    value_type: U_WORD
+    state_class: 'measurement'
+  - platform: modbus_controller
+    modbus_controller_id: inverter_1
+    id: BatCurrent_BMS
+    name: 'Battery current'
+    register_type: read
+    address: 98
+    value_type: S_WORD
+    state_class: 'measurement'
+    device_class: current
+    unit_of_measurement: 'A'
+    accuracy_decimals: 2
+    filters:
+      - multiply: 0.01
+  - platform: modbus_controller
+    modbus_controller_id: inverter_1
+    id: MaxCellVolt_BMS
+    name: 'Battery cell voltage maximum'
+    register_type: read
+    address: 101
+    value_type: U_WORD
+    state_class: 'measurement'
+    device_class: voltage
+    unit_of_measurement: 'V'
+    entity_category: 'diagnostic'
+    accuracy_decimals: 3
+    filters:
+      - multiply: 0.001
+  - platform: modbus_controller
+    modbus_controller_id: inverter_1
+    id: MinCellVolt_BMS
+    name: 'Battery cell voltage minimum'
+    register_type: read
+    address: 102
+    value_type: U_WORD
+    state_class: 'measurement'
+    device_class: voltage
+    unit_of_measurement: 'V'
+    entity_category: 'diagnostic'
+    accuracy_decimals: 3
+    filters:
+      - multiply: 0.001
+  - platform: modbus_controller
+    modbus_controller_id: inverter_1
+    id: MaxCellTemp_BMS
+    name: 'Battery cell temperature maximum'
+    register_type: read
+    address: 103
+    value_type: S_WORD
+    state_class: 'measurement'
+    device_class: temperature
+    unit_of_measurement: '°C'
+    entity_category: 'diagnostic'
+    accuracy_decimals: 1
+    filters:
+      - multiply: 0.1
+  - platform: modbus_controller
+    modbus_controller_id: inverter_1
+    id: MinCellTemp_BMS
+    name: 'Battery cell temperature minimum'
+    register_type: read
+    address: 104
+    value_type: S_WORD
+    state_class: 'measurement'
+    device_class: temperature
+    unit_of_measurement: '°C'
+    entity_category: 'diagnostic'
+    accuracy_decimals: 1
+    filters:
+      - multiply: 0.1
+  - platform: modbus_controller
+    modbus_controller_id: inverter_1
+    id: CycleCnt_BMS
+    name: 'Battery cycle count'
+    register_type: read
+    address: 106
+    value_type: U_WORD
+    state_class: 'measurement'
+  - platform: modbus_controller
+    modbus_controller_id: inverter_1
+    id: BatVoltSample_INV
+    name: 'Inverter battery voltage sampling'
+    register_type: read
+    address: 107
+    value_type: U_WORD
+    state_class: 'measurement'
+    device_class: voltage
+    unit_of_measurement: 'V'
+    entity_category: 'diagnostic'
+    accuracy_decimals: 1
+    filters:
+      - multiply: 0.1
+  - platform: modbus_controller
+    modbus_controller_id: inverter_1
+    id: VBusP
+    name: 'Half bus voltage'
+    register_type: read
+    address: 120
+    value_type: U_WORD
+    state_class: 'measurement'
+    device_class: voltage
+    unit_of_measurement: 'V'
+    entity_category: 'diagnostic'
+    accuracy_decimals: 1
+    filters:
+      - multiply: 0.1
+  - platform: modbus_controller
+    modbus_controller_id: inverter_1
+    id: GenVolt
+    name: 'Generator voltage'
+    internal: true
+    register_type: read
+    address: 121
+    value_type: U_WORD
+    state_class: 'measurement'
+    device_class: voltage
+    unit_of_measurement: 'V'
+    entity_category: 'diagnostic'
+    accuracy_decimals: 1
+    filters:
+      - multiply: 0.1
+  - platform: modbus_controller
+    modbus_controller_id: inverter_1
+    id: GenFreq
+    name: 'Generator frequency'
+    internal: true
+    register_type: read
+    address: 122
+    value_type: U_WORD
+    state_class: 'measurement'
+    device_class: frequency
+    unit_of_measurement: 'Hz'
+    entity_category: 'diagnostic'
+    accuracy_decimals: 2
+    filters:
+      - multiply: 0.01
+  - platform: modbus_controller
+    modbus_controller_id: inverter_1
+    id: GenPower
+    name: 'Generator power'
+    internal: true
+    register_type: read
+    address: 123
+    value_type: U_WORD
+    state_class: 'measurement'
+    device_class: power
+    unit_of_measurement: 'W'
+  - platform: modbus_controller
+    modbus_controller_id: inverter_1
+    id: Egen_day
+    name: 'Generator energy today'
+    internal: true
+    register_type: read
+    address: 124
+    value_type: U_WORD
+    state_class: 'total_increasing'
+    device_class: energy
+    unit_of_measurement: 'kWh'
+    accuracy_decimals: 1
+    filters:
+      - multiply: 0.1
+  - platform: modbus_controller
+    modbus_controller_id: inverter_1
+    id: Egen_all
+    name: 'Generator energy lifetime'
+    internal: true
+    register_type: read
+    address: 125
+    value_type: U_DWORD
+    state_class: 'total_increasing'
+    device_class: energy
+    unit_of_measurement: 'kWh'
+    entity_category: 'diagnostic'
+    accuracy_decimals: 1
+    filters:
+      - multiply: 0.1
+  - platform: modbus_controller
+    modbus_controller_id: inverter_1
+    id: EPSVoltL1N
+    name: 'EPS L1N voltage'
+    register_type: read
+    address: 127
+    value_type: U_WORD
+    state_class: 'measurement'
+    device_class: voltage
+    unit_of_measurement: 'V'
+    entity_category: 'diagnostic'
+    accuracy_decimals: 1
+    filters:
+      - multiply: 0.1
+  - platform: modbus_controller
+    modbus_controller_id: inverter_1
+    id: EPSVoltL2N
+    name: 'EPS L2N voltage'
+    register_type: read
+    address: 128
+    value_type: U_WORD
+    state_class: 'measurement'
+    device_class: voltage
+    unit_of_measurement: 'V'
+    entity_category: 'diagnostic'
+    accuracy_decimals: 1
+    filters:
+      - multiply: 0.1
+  - platform: modbus_controller
+    modbus_controller_id: inverter_1
+    id: Peps_L1N
+    name: 'EPS L1N power'
+    register_type: read
+    address: 129
+    value_type: U_WORD
+    state_class: 'measurement'
+    device_class: power
+    unit_of_measurement: 'W'
+    entity_category: 'diagnostic'
+  - platform: modbus_controller
+    modbus_controller_id: inverter_1
+    id: Peps_L2N
+    name: 'EPS L2N power'
+    register_type: read
+    address: 130
+    value_type: U_WORD
+    state_class: 'measurement'
+    device_class: power
+    unit_of_measurement: 'W'
+    entity_category: 'diagnostic'
+  - platform: modbus_controller
+    modbus_controller_id: inverter_1
+    id: Seps_L1N
+    name: 'EPS L1N apparent power'
+    register_type: read
+    address: 131
+    value_type: U_WORD
+    state_class: 'measurement'
+    device_class: apparent_power
+    unit_of_measurement: 'VA'
+    entity_category: 'diagnostic'
+  - platform: modbus_controller
+    modbus_controller_id: inverter_1
+    id: Seps_L2N
+    name: 'EPS L2N apparent power'
+    register_type: read
+    address: 132
+    value_type: U_WORD
+    state_class: 'measurement'
+    device_class: apparent_power
+    unit_of_measurement: 'VA'
+    entity_category: 'diagnostic'
+  - platform: modbus_controller
+    modbus_controller_id: inverter_1
+    id: EepsL1N_day
+    name: 'EPS L1N energy today'
+    register_type: read
+    address: 133
+    value_type: U_WORD
+    state_class: 'total_increasing'
+    device_class: energy
+    unit_of_measurement: 'kWh'
+    entity_category: 'diagnostic'
+    accuracy_decimals: 1
+    filters:
+      - multiply: 0.1
+  - platform: modbus_controller
+    modbus_controller_id: inverter_1
+    id: EepsL2N_day
+    name: 'EPS L2N energy today'
+    register_type: read
+    address: 134
+    value_type: U_WORD
+    state_class: 'total_increasing'
+    device_class: energy
+    unit_of_measurement: 'kWh'
+    entity_category: 'diagnostic'
+    accuracy_decimals: 1
+    filters:
+      - multiply: 0.1
+  - platform: modbus_controller
+    modbus_controller_id: inverter_1
+    id: EepsL1N_all
+    name: 'EPS L1N energy lifetime'
+    register_type: read
+    address: 135
+    value_type: U_DWORD_R
+    state_class: 'total_increasing'
+    device_class: energy
+    unit_of_measurement: 'kWh'
+    entity_category: 'diagnostic'
+    accuracy_decimals: 1
+    filters:
+      - multiply: 0.1
+  - platform: modbus_controller
+    modbus_controller_id: inverter_1
+    id: EepsL2N_all
+    name: 'EPS L2N energy lifetime'
+    register_type: read
+    address: 137
+    value_type: U_DWORD_R
+    state_class: 'total_increasing'
+    device_class: energy
+    unit_of_measurement: 'kWh'
+    entity_category: 'diagnostic'
+    accuracy_decimals: 1
+    filters:
+      - multiply: 0.1
+text_sensor:
+  - platform: modbus_controller
+    modbus_controller_id: inverter_1
+    id: State
+    name: 'Operating mode (raw)'
+    register_type: read
+    address: 0
+    register_count: 1
+    raw_encode: HEXBYTES
+    entity_category: 'diagnostic'
+  - platform: modbus_controller
+    modbus_controller_id: inverter_1
+    id: InternalFault
+    name: 'Internal fault code (raw)'
+    register_type: read
+    address: 6
+    register_count: 1
+    raw_encode: HEXBYTES
+    entity_category: 'diagnostic'
+  - platform: modbus_controller
+    modbus_controller_id: inverter_1
+    id: FaultCode
+    name: 'Fault code (raw)'
+    register_type: read
+    address: 60
+    register_count: 2
+    raw_encode: HEXBYTES
+    entity_category: 'diagnostic'
+  - platform: modbus_controller
+    modbus_controller_id: inverter_1
+    id: WarningCode
+    name: 'Warning code (raw)'
+    register_type: read
+    address: 62
+    register_count: 2
+    raw_encode: HEXBYTES
+    entity_category: 'diagnostic'
+  - platform: modbus_controller
+    modbus_controller_id: inverter_1
+    id: BatStatus0_BMS
+    name: 'BMS #0 status (raw)'
+    internal: true
+    register_type: read
+    address: 85
+    register_count: 1
+    raw_encode: HEXBYTES
+    entity_category: 'diagnostic'
+  - platform: modbus_controller
+    modbus_controller_id: inverter_1
+    id: BatStatus1_BMS
+    name: 'BMS #1 status (raw)'
+    internal: true
+    register_type: read
+    address: 86
+    register_count: 1
+    raw_encode: HEXBYTES
+    entity_category: 'diagnostic'
+  - platform: modbus_controller
+    modbus_controller_id: inverter_1
+    id: BatStatus2_BMS
+    name: 'BMS #2 status (raw)'
+    internal: true
+    register_type: read
+    address: 87
+    register_count: 1
+    raw_encode: HEXBYTES
+    entity_category: 'diagnostic'
+  - platform: modbus_controller
+    modbus_controller_id: inverter_1
+    id: BatStatus3_BMS
+    name: 'BMS #3 status (raw)'
+    internal: true
+    register_type: read
+    address: 88
+    register_count: 1
+    raw_encode: HEXBYTES
+    entity_category: 'diagnostic'
+  - platform: modbus_controller
+    modbus_controller_id: inverter_1
+    id: BatStatus4_BMS
+    name: 'BMS #4 status (raw)'
+    internal: true
+    register_type: read
+    address: 89
+    register_count: 1
+    raw_encode: HEXBYTES
+    entity_category: 'diagnostic'
+  - platform: modbus_controller
+    modbus_controller_id: inverter_1
+    id: BatStatus5_BMS
+    name: 'BMS #5 status (raw)'
+    internal: true
+    register_type: read
+    address: 90
+    register_count: 1
+    raw_encode: HEXBYTES
+    entity_category: 'diagnostic'
+  - platform: modbus_controller
+    modbus_controller_id: inverter_1
+    id: BatStatus6_BMS
+    name: 'BMS #6 status (raw)'
+    internal: true
+    register_type: read
+    address: 91
+    register_count: 1
+    raw_encode: HEXBYTES
+    entity_category: 'diagnostic'
+  - platform: modbus_controller
+    modbus_controller_id: inverter_1
+    id: BatStatus7_BMS
+    name: 'BMS #7 status (raw)'
+    internal: true
+    register_type: read
+    address: 92
+    register_count: 1
+    raw_encode: HEXBYTES
+    entity_category: 'diagnostic'
+  - platform: modbus_controller
+    modbus_controller_id: inverter_1
+    id: BatStatus8_BMS
+    name: 'BMS #8 status (raw)'
+    internal: true
+    register_type: read
+    address: 93
+    register_count: 1
+    raw_encode: HEXBYTES
+    entity_category: 'diagnostic'
+  - platform: modbus_controller
+    modbus_controller_id: inverter_1
+    id: BatStatus9_BMS
+    name: 'BMS #9 status (raw)'
+    internal: true
+    register_type: read
+    address: 94
+    register_count: 1
+    raw_encode: HEXBYTES
+    entity_category: 'diagnostic'
+  - platform: modbus_controller
+    modbus_controller_id: inverter_1
+    id: BatStatus_INV
+    name: 'BMS summary status (raw)'
+    internal: true
+    register_type: read
+    address: 95
+    register_count: 1
+    raw_encode: HEXBYTES
+    entity_category: 'diagnostic'
+  - platform: modbus_controller
+    modbus_controller_id: inverter_1
+    id: FaultCode_BMS
+    name: 'BMS fault code (raw)'
+    register_type: read
+    address: 99
+    register_count: 1
+    raw_encode: HEXBYTES
+    entity_category: 'diagnostic'
+  - platform: modbus_controller
+    modbus_controller_id: inverter_1
+    id: WarningCode_BMS
+    name: 'BMS warning code (raw)'
+    register_type: read
+    address: 100
+    register_count: 1
+    raw_encode: HEXBYTES
+    entity_category: 'diagnostic'
+  - platform: modbus_controller
+    modbus_controller_id: inverter_1
+    id: BMSFWUpdateState
+    name: 'BMS update status (raw)'
+    internal: true
+    register_type: read
+    address: 105
+    register_count: 1
+    raw_encode: HEXBYTES
+    entity_category: 'diagnostic'

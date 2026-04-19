@@ -1,0 +1,162 @@
+esphome:
+  name: 12000xp
+  friendly_name: 12000XP
+
+esp32:
+  board: m5stack-atom
+  framework:
+    type: esp-idf
+    version: recommended
+
+logger:
+  baud_rate: 0
+
+api:
+ota:
+  platform: esphome
+
+wifi:
+  fast_connect: true
+  ssid: !secret wifi_ssid
+  password: !secret wifi_password
+
+uart:
+  - id: uart_modbus_inverter_1
+    tx_pin: GPIO26
+    rx_pin: GPIO32
+    baud_rate: 19200
+    stop_bits: 1
+    parity: NONE
+    data_bits: 8
+
+modbus:
+  - uart_id: uart_modbus_inverter_1
+    id: modbus_inverter_1
+
+modbus_controller:
+  - id: inverter_1
+    modbus_id: modbus_inverter_1
+    address: 1
+    update_interval: 15s
+
+packages:
+  auto: !include 12000xp_auto.yaml
+
+time:
+  - platform: sntp
+    id: sntp_time
+    servers:
+      - 0.north-america.pool.ntp.org
+      - 1.north-america.pool.ntp.org
+    timezone: "America/Denver"
+    on_time:
+      seconds: 0
+      minutes: 0
+      then:
+        - script.execute: sync_time
+
+script:
+  - id: sync_time
+    mode: queued
+    then:
+      - lambda: |-
+          auto time = id(sntp_time).now();
+          if (!time.is_valid()) {
+            ESP_LOGD("sync_time", "Time not valid, ignoring sync request");
+            return;
+          }
+          uint16_t monthYear = (time.month << 8) | ((uint8_t) (time.year % 100));
+          uint16_t hourDay = (time.hour << 8) | time.day_of_month;
+          uint16_t secondMinute = (time.second << 8) | time.minute;
+          inverter_1->queue_command(esphome::modbus_controller::ModbusCommandItem::
+              create_write_multiple_command(inverter_1, 12, 3, {monthYear, hourDay, secondMinute}));
+
+button:
+  - platform: template
+    id: force_sync_time
+    name: "Force sync time"
+    on_press:
+      then:
+        - script.execute: sync_time
+
+text_sensor:
+  - platform: modbus_controller
+    modbus_controller_id: inverter_1
+    name: "Operating mode"
+    id: State_human
+    register_type: read
+    address: 0
+    raw_encode: HEXBYTES
+    lambda: |-
+      if (x == "0000") return {"Standby"};
+      if (x == "0001") return {"Fault"};
+      if (x == "0002") return {"Programming"};
+      if (x == "0004") return {"PV on-grid mode"};
+      if (x == "0008") return {"PV Charge mode"};
+      if (x == "000c") return {"PV Charge+on-grid mode"};
+      if (x == "0010") return {"Battery on-grid mode"};
+      if (x == "0014") return {"PV+Battery on-grid mode"};
+      if (x == "0020") return {"AC Charge mode"};
+      if (x == "0028") return {"PV+AC charge mode"};
+      if (x == "0040") return {"Battery off-grid mode"};
+      if (x == "0080") return {"PV off-grid mode"};
+      if (x == "00c0") return {"PV+battery off-grid mode"};
+      if (x == "0088") return {"PV charge +off-grid mode"};
+      return x;
+
+sensor:
+  - platform: wifi_signal
+    name: "WiFi Signal dB"
+    id: wifi_signal_db
+    update_interval: 60s
+    entity_category: "diagnostic"
+  - platform: template
+    id: Ppv
+    name: "PV power"
+    unit_of_measurement: "W"
+    device_class: power
+    state_class: measurement
+    lambda: |-
+      return (id(Ppv1).state + id(Ppv2).state);
+  - platform: template
+    id: Epv_day
+    name: "PV energy today"
+    unit_of_measurement: "kWh"
+    device_class: energy
+    state_class: total_increasing
+    lambda: |-
+      return (id(Epv1_day).state + id(Epv2_day).state);
+  - platform: template
+    id: Pload
+    name: "Load power"
+    unit_of_measurement: "W"
+    device_class: power
+    state_class: measurement
+    lambda: |-
+      return (id(Ptouser).state + id(Ppv).state + id(Pdischarge).state - id(Pcharge).state);
+  - platform: template
+    id: Eload_day
+    name: "Load energy today"
+    unit_of_measurement: "kWh"
+    device_class: energy
+    state_class: total_increasing
+    lambda: |-
+      return (id(Etouser_day).state + id(Epv_day).state + id(Edischg_day).state - id(Echg_day).state);
+  - platform: template
+    id: PFeps
+    name: "EPS power factor"
+    state_class: measurement
+    entity_category: "diagnostic"
+    lambda: |-
+      return (id(Peps).state / id(Seps).state);
+  - platform: modbus_controller
+    modbus_controller_id: inverter_1
+    name: "Battery SOC"
+    id: SOC
+    address: 5
+    register_type: read
+    value_type: U_WORD
+    unit_of_measurement: "%"
+    device_class: battery
+    lambda: |-
+        return (int(x) & 0xFF);

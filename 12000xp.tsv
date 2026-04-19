@@ -1,0 +1,100 @@
+address	id	value_type	device_class	unit_of_measurement	state_class	multiply	name	entity_category	internal
+0	State	RAW_WORD					Operating mode (raw)	diagnostic	
+1	Vpv1	U_WORD	voltage	V	measurement	0.1	PV1 voltage		
+2	Vpv2	U_WORD	voltage	V	measurement	0.1	PV2 voltage		
+3	Vpv3	U_WORD	voltage	V	measurement	0.1	PV3 voltage		TRUE
+4	Vbat	U_WORD	voltage	V	measurement	0.1	Battery voltage	diagnostic	
+6	InternalFault	RAW_WORD					Internal fault code (raw)	diagnostic	
+7	Ppv1	U_WORD	power	W	measurement	1	PV1 power		
+8	Ppv2	U_WORD	power	W	measurement	1	PV2 power		
+9	Ppv3	U_WORD	power	W	measurement	1	PV3 power		TRUE
+10	Pcharge	U_WORD	power	W	measurement	1	Battery charge power		
+11	Pdischarge	U_WORD	power	W	measurement	1	Battery discharge power		
+12	VacR	U_WORD	voltage	V	measurement	0.1	Grid L1 voltage	diagnostic	
+13	VacS	U_WORD	voltage	V	measurement	0.1	Grid L2 voltage	diagnostic	TRUE
+14	VacT	U_WORD	voltage	V	measurement	0.1	Grid L3 voltage	diagnostic	TRUE
+15	Fac	U_WORD	frequency	Hz	measurement	0.01	Grid frequency	diagnostic	
+16	Pinv	U_WORD	power	W	measurement	1	Inverter power	diagnostic	
+17	Prec	U_WORD	power	W	measurement	1	Rectifier power	diagnostic	
+18	IinvRMS	U_WORD	current	A	measurement	0.01	Inverter current	diagnostic	
+19	PF	S_WORD			measurement	0.001	Power factor	diagnostic	TRUE
+20	VepsR	U_WORD	voltage	V	measurement	0.1	EPS L1 voltage	diagnostic	
+21	VepsS	U_WORD	voltage	V	measurement	0.1	EPS L2 voltage	diagnostic	TRUE
+22	VepsT	U_WORD	voltage	V	measurement	0.1	EPS L3 voltage	diagnostic	TRUE
+23	Feps	U_WORD	frequency	Hz	measurement	0.01	EPS frequency	diagnostic	
+24	Peps	U_WORD	power	W	measurement	1	EPS power		
+25	Seps	U_WORD	apparent_power	VA	measurement	1	EPS apparent power	diagnostic	
+26	Ptogrid	U_WORD	power	W	measurement	1	Export to grid power		TRUE
+27	Ptouser	U_WORD	power	W	measurement	1	Import from grid power		
+28	Epv1_day	U_WORD	energy	kWh	total_increasing	0.1	PV1 energy today		
+29	Epv2_day	U_WORD	energy	kWh	total_increasing	0.1	PV2 energy today		
+30	Epv3_day	U_WORD	energy	kWh	total_increasing	0.1	PV3 energy today		TRUE
+31	Einv_day	U_WORD	energy	kWh	total_increasing	0.1	Inverter energy today	diagnostic	
+32	Erec_day	U_WORD	energy	kWh	total_increasing	0.1	Rectifier energy today	diagnostic	
+33	Echg_day	U_WORD	energy	kWh	total_increasing	0.1	Battery charged energy today		
+34	Edischg_day	U_WORD	energy	kWh	total_increasing	0.1	Battery discharged energy today		
+35	Eeps_day	U_WORD	energy	kWh	total_increasing	0.1	EPS energy today		
+36	Etogrid_day	U_WORD	energy	kWh	total_increasing	0.1	Export to grid energy today		TRUE
+37	Etouser_day	U_WORD	energy	kWh	total_increasing	0.1	Import from grid energy today		
+38	Vbus1	U_WORD	voltage	V	measurement	0.1	Bus 1 voltage	diagnostic	
+39	Vbus2	U_WORD	voltage	V	measurement	0.1	Bus 2 voltage	diagnostic	
+40	Epv1_all	U_DWORD_R	energy	kWh	total_increasing	0.1	PV1 energy lifetime	diagnostic	
+42	Epv2_all	U_DWORD_R	energy	kWh	total_increasing	0.1	PV2 energy lifetime	diagnostic	
+44	Epv3_all	U_DWORD_R	energy	kWh	total_increasing	0.1	PV3 energy lifetime	diagnostic	TRUE
+46	Einv_all	U_DWORD_R	energy	kWh	total_increasing	0.1	Inverter energy lifetime	diagnostic	
+48	Erec_all	U_DWORD_R	energy	kWh	total_increasing	0.1	Rectifier energy lifetime	diagnostic	
+50	Echg_all	U_DWORD_R	energy	kWh	total_increasing	0.1	Battery charged energy lifetime	diagnostic	
+52	Edischg_all	U_DWORD_R	energy	kWh	total_increasing	0.1	Battery discharged energy lifetime	diagnostic	
+54	Eeps_all	U_DWORD_R	energy	kWh	total_increasing	0.1	EPS energy lifetime	diagnostic	
+56	Etogrid_all	U_DWORD_R	energy	kWh	total_increasing	0.1	Export to grid energy lifetime	diagnostic	TRUE
+58	Etouser_all	U_DWORD_R	energy	kWh	total_increasing	0.1	Import from grid energy lifetime	diagnostic	
+60	FaultCode	RAW_DWORD					Fault code (raw)	diagnostic	
+62	WarningCode	RAW_DWORD					Warning code (raw)	diagnostic	
+64	Tinner	S_WORD	temperature	°C	measurement	1	Internal temperature	diagnostic	
+65	Tradiator1	S_WORD	temperature	°C	measurement	1	Radiator temperature 1	diagnostic	
+66	Tradiator2	S_WORD	temperature	°C	measurement	1	Radiator temperature 2	diagnostic	
+67	Tbat	S_WORD	temperature	°C	measurement	1	Battery temperature	diagnostic	
+69	RunningTime	U_DWORD_R	duration	s	total_increasing	1	Uptime	diagnostic	
+81	MaxChgCurr	U_WORD	current	A	measurement	0.1	BMS limited maximum charge current	diagnostic	
+82	MaxDischgCurr	U_WORD	current	A	measurement	0.1	BMS limited maximum discharge current	diagnostic	
+83	ChargeVoltRef	U_WORD	voltage	V	measurement	0.1	BMS recommended charging voltage	diagnostic	TRUE
+84	DischgCutVolt	U_WORD	voltage	V	measurement	0.1	BMS recommended discharge cut-off voltage	diagnostic	TRUE
+85	BatStatus0_BMS	RAW_WORD					BMS #0 status (raw)	diagnostic	TRUE
+86	BatStatus1_BMS	RAW_WORD					BMS #1 status (raw)	diagnostic	TRUE
+87	BatStatus2_BMS	RAW_WORD					BMS #2 status (raw)	diagnostic	TRUE
+88	BatStatus3_BMS	RAW_WORD					BMS #3 status (raw)	diagnostic	TRUE
+89	BatStatus4_BMS	RAW_WORD					BMS #4 status (raw)	diagnostic	TRUE
+90	BatStatus5_BMS	RAW_WORD					BMS #5 status (raw)	diagnostic	TRUE
+91	BatStatus6_BMS	RAW_WORD					BMS #6 status (raw)	diagnostic	TRUE
+92	BatStatus7_BMS	RAW_WORD					BMS #7 status (raw)	diagnostic	TRUE
+93	BatStatus8_BMS	RAW_WORD					BMS #8 status (raw)	diagnostic	TRUE
+94	BatStatus9_BMS	RAW_WORD					BMS #9 status (raw)	diagnostic	TRUE
+95	BatStatus_INV	RAW_WORD					BMS summary status (raw)	diagnostic	TRUE
+96	BatParallelNum	U_WORD			measurement		Number of batteries in parallel		
+97	BatCapacity	U_WORD			measurement		Battery capacity (Ah)		
+98	BatCurrent_BMS	S_WORD	current	A	measurement	0.01	Battery current		
+99	FaultCode_BMS	RAW_WORD					BMS fault code (raw)	diagnostic	
+100	WarningCode_BMS	RAW_WORD					BMS warning code (raw)	diagnostic	
+101	MaxCellVolt_BMS	U_WORD	voltage	V	measurement	0.001	Battery cell voltage maximum	diagnostic	
+102	MinCellVolt_BMS	U_WORD	voltage	V	measurement	0.001	Battery cell voltage minimum	diagnostic	
+103	MaxCellTemp_BMS	S_WORD	temperature	°C	measurement	0.1	Battery cell temperature maximum	diagnostic	
+104	MinCellTemp_BMS	S_WORD	temperature	°C	measurement	0.1	Battery cell temperature minimum	diagnostic	
+105	BMSFWUpdateState	RAW_WORD					BMS update status (raw)	diagnostic	TRUE
+106	CycleCnt_BMS	U_WORD			measurement	1	Battery cycle count		
+107	BatVoltSample_INV	U_WORD	voltage	V	measurement	0.1	Inverter battery voltage sampling	diagnostic	
+120	VBusP	U_WORD	voltage	V	measurement	0.1	Half bus voltage	diagnostic	
+121	GenVolt	U_WORD	voltage	V	measurement	0.1	Generator voltage	diagnostic	TRUE
+122	GenFreq	U_WORD	frequency	Hz	measurement	0.01	Generator frequency	diagnostic	TRUE
+123	GenPower	U_WORD	power	W	measurement	1	Generator power		TRUE
+124	Egen_day	U_WORD	energy	kWh	total_increasing	0.1	Generator energy today		TRUE
+125	Egen_all	U_DWORD	energy	kWh	total_increasing	0.1	Generator energy lifetime	diagnostic	TRUE
+127	EPSVoltL1N	U_WORD	voltage	V	measurement	0.1	EPS L1N voltage	diagnostic	
+128	EPSVoltL2N	U_WORD	voltage	V	measurement	0.1	EPS L2N voltage	diagnostic	
+129	Peps_L1N	U_WORD	power	W	measurement	1	EPS L1N power	diagnostic	
+130	Peps_L2N	U_WORD	power	W	measurement	1	EPS L2N power	diagnostic	
+131	Seps_L1N	U_WORD	apparent_power	VA	measurement	1	EPS L1N apparent power	diagnostic	
+132	Seps_L2N	U_WORD	apparent_power	VA	measurement	1	EPS L2N apparent power	diagnostic	
+133	EepsL1N_day	U_WORD	energy	kWh	total_increasing	0.1	EPS L1N energy today	diagnostic	
+134	EepsL2N_day	U_WORD	energy	kWh	total_increasing	0.1	EPS L2N energy today	diagnostic	
+135	EepsL1N_all	U_DWORD_R	energy	kWh	total_increasing	0.1	EPS L1N energy lifetime	diagnostic	
+137	EepsL2N_all	U_DWORD_R	energy	kWh	total_increasing	0.1	EPS L2N energy lifetime	diagnostic	
