@@ -37,7 +37,7 @@ modbus_controller:
   - id: inverter_1
     modbus_id: modbus_inverter_1
     address: 1
-    update_interval: 15s
+    update_interval: 60s
 
 packages:
   auto: !include 12000xp_auto.yaml
