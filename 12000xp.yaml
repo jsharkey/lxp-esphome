@@ -133,7 +133,7 @@ sensor:
     device_class: power
     state_class: measurement
     lambda: |-
-      return (id(Ptouser).state + id(Ppv).state + id(Pdischarge).state - id(Pcharge).state);
+      return (id(Ptouser).state - id(Ptogrid).state + id(Pinv).state - id(Prec).state + id(Peps).state);
   - platform: template
     id: Eload_day
     name: "Load energy today"
@@ -141,7 +141,7 @@ sensor:
     device_class: energy
     state_class: total_increasing
     lambda: |-
-      return (id(Etouser_day).state + id(Epv_day).state + id(Edischg_day).state - id(Echg_day).state);
+      return (id(Etouser_day).state - id(Etogrid_day).state + id(Einv_day).state - id(Erec_day).state + id(Eeps_day).state);
   - platform: template
     id: PFeps
     name: "EPS power factor"
