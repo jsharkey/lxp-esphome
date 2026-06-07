@@ -127,6 +127,15 @@ sensor:
     lambda: |-
       return (id(Epv1_day).state + id(Epv2_day).state + id(Epv3_day).state);
   - platform: template
+    id: Epv_all
+    name: "PV energy lifetime"
+    unit_of_measurement: "kWh"
+    device_class: energy
+    entity_category: "diagnostic"
+    state_class: total_increasing
+    lambda: |-
+      return (id(Epv1_all).state + id(Epv2_all).state + id(Epv3_all).state);
+  - platform: template
     id: Pload
     name: "Load power"
     unit_of_measurement: "W"
