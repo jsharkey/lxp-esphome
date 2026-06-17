@@ -113,42 +113,42 @@ sensor:
   - platform: template
     id: Ppv
     name: "PV power"
-    unit_of_measurement: "W"
-    device_class: power
     state_class: measurement
+    device_class: power
+    unit_of_measurement: "W"
     lambda: |-
       return (id(Ppv1).state + id(Ppv2).state + id(Ppv3).state);
   - platform: template
     id: Epv_day
     name: "PV energy today"
-    unit_of_measurement: "kWh"
-    device_class: energy
     state_class: total_increasing
+    device_class: energy
+    unit_of_measurement: "kWh"
     lambda: |-
       return (id(Epv1_day).state + id(Epv2_day).state + id(Epv3_day).state);
   - platform: template
     id: Epv_all
     name: "PV energy lifetime"
-    unit_of_measurement: "kWh"
-    device_class: energy
-    entity_category: "diagnostic"
     state_class: total_increasing
+    device_class: energy
+    unit_of_measurement: "kWh"
+    entity_category: "diagnostic"
     lambda: |-
       return (id(Epv1_all).state + id(Epv2_all).state + id(Epv3_all).state);
   - platform: template
     id: Pload
     name: "Load power"
-    unit_of_measurement: "W"
-    device_class: power
     state_class: measurement
+    device_class: power
+    unit_of_measurement: "W"
     lambda: |-
       return (id(Ptouser).state - id(Ptogrid).state + id(Pinv).state - id(Prec).state + id(Peps).state);
   - platform: template
     id: Eload_day
     name: "Load energy today"
-    unit_of_measurement: "kWh"
-    device_class: energy
     state_class: total_increasing
+    device_class: energy
+    unit_of_measurement: "kWh"
     lambda: |-
       return (id(Etouser_day).state - id(Etogrid_day).state + id(Einv_day).state - id(Erec_day).state + id(Eeps_day).state);
   - platform: template
@@ -160,12 +160,13 @@ sensor:
       return (id(Peps).state / id(Seps).state);
   - platform: modbus_controller
     modbus_controller_id: inverter_1
-    name: "Battery SOC"
     id: SOC
+    name: "Battery SOC"
+    state_class: measurement
+    device_class: battery
+    unit_of_measurement: "%"
     address: 5
     register_type: read
     value_type: U_WORD
-    unit_of_measurement: "%"
-    device_class: battery
     lambda: |-
         return (int(x) & 0xFF);
