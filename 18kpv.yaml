@@ -69,7 +69,11 @@ script:
           uint16_t hourDay = (time.hour << 8) | time.day_of_month;
           uint16_t secondMinute = (time.second << 8) | time.minute;
           inverter_1->queue_command(esphome::modbus_controller::ModbusCommandItem::
-              create_write_multiple_command(inverter_1, 12, 3, {monthYear, hourDay, secondMinute}));
+              create_write_single_command(inverter_1, 12, monthYear));
+          inverter_1->queue_command(esphome::modbus_controller::ModbusCommandItem::
+              create_write_single_command(inverter_1, 13, hourDay));
+          inverter_1->queue_command(esphome::modbus_controller::ModbusCommandItem::
+              create_write_single_command(inverter_1, 14, secondMinute));
 
 button:
   - platform: template
