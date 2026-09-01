@@ -50,8 +50,9 @@ time:
       - 1.north-america.pool.ntp.org
     timezone: "America/Denver"
     on_time:
-      seconds: 0
-      minutes: 0
+      hours: 3
+      minutes: 5
+      seconds: 7
       then:
         - script.execute: sync_time
 
